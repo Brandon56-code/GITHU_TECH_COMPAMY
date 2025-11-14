@@ -1,0 +1,523 @@
+/* ===================================
+   GITHU TECH - ADVANCED STYLING
+   Eye-catching animations & effects
+   =================================== */
+
+/* === GLOBAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+}
+
+/* === ANIMATED GRADIENT BACKGROUND === */
+.gradient-bg {
+    background: linear-gradient(-45deg, #f0f9ff, #dbeafe, #bfdbfe, #93c5fd);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === NAVIGATION EFFECTS === */
+nav {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    transition: all 0.3s ease;
+}
+
+nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #06b6d4);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* === LOGO ANIMATIONS === */
+.logo-animation {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo-animation:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.logo-animation::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #3b82f6, #06b6d4, #3b82f6);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+.logo-animation:hover::before {
+    opacity: 0.7;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === HERO SECTION === */
+#home h1 {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+#home .inline-block {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Decorative animated circles */
+#home .absolute {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+#home .absolute:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#home .absolute:nth-child(2) {
+    animation-delay: 2s;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+/* CTA Button */
+#home a {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+#home a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+#home a:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+#home a:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
+/* === SERVICE CARDS === */
+.card-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+}
+
+.card-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.7s;
+}
+
+.card-hover:hover::before {
+    left: 100%;
+}
+
+.card-hover:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Service icon animation */
+.card-hover .w-20 {
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.card-hover:hover .w-20 {
+    transform: scale(1.15) rotate(360deg);
+}
+
+.card-hover .w-20::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.card-hover:hover .w-20::after {
+    opacity: 0.6;
+}
+
+/* === WHY CHOOSE US SECTION === */
+.hero-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #0ea5e9 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Animated background particles */
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particleMove 20s linear infinite;
+}
+
+@keyframes particleMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* History card with glass effect */
+#why-us .backdrop-blur-lg {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Checkmark items animation */
+#why-us .bg-white {
+    position: relative;
+    overflow: hidden;
+}
+
+#why-us .bg-white::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+#why-us .bg-white:hover::after {
+    left: 100%;
+}
+
+/* Checkmark icon animation */
+#why-us svg {
+    animation: checkPop 0.5s ease;
+}
+
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* === CONTACT SECTION === */
+#contact .shadow-lg {
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .shadow-lg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+#contact .shadow-lg:hover::before {
+    transform: scale(1);
+}
+
+#contact .shadow-lg:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.3);
+}
+
+#contact svg {
+    transition: all 0.4s ease;
+}
+
+#contact .shadow-lg:hover svg {
+    transform: scale(1.2) rotate(360deg);
+}
+
+#contact a {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#contact a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #06b6d4);
+    transition: width 0.3s ease;
+}
+
+#contact a:hover::after {
+    width: 100%;
+}
+
+/* === FOOTER === */
+footer {
+    position: relative;
+    background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* === SCROLL ANIMATIONS === */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* === TEXT GLOW EFFECT === */
+.text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+                 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+/* === LOADING ANIMATIONS === */
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* === MOBILE MENU === */
+#mobile-menu {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === CUSTOM SCROLLBAR === */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1e40af, #0891b2);
+}
+
+/* === SELECTION STYLING === */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #1e40af;
+}
+
+::-moz-selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #1e40af;
+}
+
+/* === RESPONSIVE ENHANCEMENTS === */
+@media (max-width: 768px) {
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+    
+    .card-hover:active {
+        transform: scale(0.98);
+    }
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === FOCUS STATES === */
+a:focus,
+button:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* === BUTTON PRESS EFFECT === */
+button:active,
+a:active {
+    transform: scale(0.98);
+}
+
+/* === SECTION TITLES === */
+section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* === STAGGER ANIMATIONS FOR SERVICES === */
+.card-hover:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.1s both; }
+.card-hover:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.2s both; }
+.card-hover:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+.card-hover:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.4s both; }
+.card-hover:nth-child(5) { animation: fadeInUp 0.6s ease-out 0.5s both; }
